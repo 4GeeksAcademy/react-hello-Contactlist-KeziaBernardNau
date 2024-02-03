@@ -3,6 +3,7 @@ import propTypes from "prop-types";
 
 const ContactCard = (props) => {
     const contact = props.object;
+    console.log(contact, "This is a contact")
     return(
         <div className="card " style={{"maxWidth": "100%"}} >
             <div className="row g-0">

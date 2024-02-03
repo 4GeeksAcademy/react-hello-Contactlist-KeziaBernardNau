@@ -17,6 +17,7 @@ const Contact = () => {
                 </div>            
             </div>            
             {store.contacts.map((item, index) => {
+                console.log(item, "this is an item fromthe store.contacts.map")
                 return (
                 <ContactCard                         
                             object={item} 

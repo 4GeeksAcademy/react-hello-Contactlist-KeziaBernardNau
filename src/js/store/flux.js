@@ -6,7 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			// Use getActions to call a function within a fuction		
 			getContacts: () => {
-				const url = "https://playground.4geeks.com/apis/fake/contact/agenda/";
+				const url = "https://playground.4geeks.com/apis/fake/contact/agenda/Kezia_Bernard";
 				fetch(url, {
 					method: "Get"					
 				})
@@ -26,7 +26,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 			},
 			addContact: (contact, navigate) => {				
-				const url = "https://playground.4geeks.com/apis/fake/contact/Kezia_Bernard";
+				const url = "https://playground.4geeks.com/apis/fake/contact/";
 				 fetch(url, {
 					method: "Post",
 					headers: {
@@ -99,10 +99,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			deleteContact: (contact) => {
 				let store = getStore();
-				console.log(contact)
 				const url = `https://playground.4geeks.com/apis/fake/contact/${contact}`;
 				fetch(url, {
-					method: "DELETE"					
+					method: "Delete"					
 				})
 				.then(resp => {
 					console.log(resp.ok); // will be true if the response is successfull
@@ -110,8 +109,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 				.then(data => {					
 					let val = store.contacts.filter((item) => item.id != contact);
-					console.log(val,"This is val from delete request")
-					console.log(contact, "This is the contact")
 					setStore({contacts: val});
 				})
 				.catch(error => {
